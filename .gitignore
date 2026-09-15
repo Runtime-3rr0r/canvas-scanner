@@ -1,0 +1,26 @@
+# secrets — never commit
+.env
+*.local
+**/.env
+
+# private school config (lives in ~/.hermes/, never in the repo)
+school-config.md
+.hermes-school-config*
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# generated artifacts if the suite ever runs from inside the repo
+*.mp4
+*.wav
+*.srt
+transcripts/
+Materials/
+Downloads/
+
+# os noise
+.DS_Store
+Thumbs.db
