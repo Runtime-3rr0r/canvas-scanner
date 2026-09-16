@@ -31,7 +31,7 @@ REPL = [
     (_p("XGJDaHJpc3RpYW5cYg=="), "<USER_NAME>"),
     (_p("XGJDaHJpc1xi"), "<USER_NAME>"),
     (_p("Y2hyaXN0aWFubWlsbHMxN0BpY2xvdWRcLmNvbQ=="), "<USER_EMAIL>"),
-    (_p("KD88IWdpdGh1YlwuY29tLykoPzwhcmVwb3MvKVJ1bnRpbWUtM3JyMHI="), "<GITHUB_USER>"),
+    (_p("KD88IWdpdGh1YlwuY29tLykoPzwhcmF3XC5naXRodWJ1c2VyY29udGVudFwuY29tLykoPzwhcmVwb3MvKVJ1bnRpbWUtM3JyMHI="), "<GITHUB_USER>"),
     (_p("XGJKYXNvblxi"), "<SECOND_USER>"),
     (_p("XGI4MTAwMDhcYg=="), "<STUDENT_ID>"),
     (_p("Y2FsYmFwdGlzdFwuaW5zdHJ1Y3R1cmVcLmNvbQ=="), "<SCHOOL_DOMAIN>"),
@@ -69,7 +69,7 @@ REPL = [
 ]
 
 LEAKS = re.compile(_p("ODEwMDA4fGNhbGJhcHRpc3R8QzovVXNlcnMvQ2hyaXN8U2NoYWNodHxKZWZmIENhdGV8XGJDYXRlXGJ8XGJTZXRoXGJ8XGJUeXJvbmVcYnxcYk5hdGhhblxifFxiTWlsbHNDXGJ8Y2hyaXN0aWFubWlsbHMxN3xjaHJpc3RpYW5taWxsc3xcYkNocmlzXGJ8XGJDaHJpc3RpYW5cYnxcYkphc29uXGJ8YWNoaWV2ZVwubWFjbWlsbGFubGVhcm5pbmd8bXlsYWJtYXN0ZXJpbmdcLnBlYXJzb258XGJDQlVcYnxcYkNIU1RcZHs0fVxifFxiR05TVFxkezR9XGJ8XGJFTkdSXGR7NH1bQS1aXT9cYnxcYkNIRU1cZHs0fVtBLVpdP1xi"), re.I)
-REPO_URL_OK = re.compile(r"(?:github\.com|api\.github\.com/repos)/Runtime-3rr0r/canvas-scanner")
+REPO_URL_OK = re.compile(r"(?:github\.com|raw\.githubusercontent\.com|api\.github\.com/repos)/Runtime-3rr0r/canvas-scanner")
 
 changed = 0
 for dirpath, dirs, files in os.walk(ROOT):

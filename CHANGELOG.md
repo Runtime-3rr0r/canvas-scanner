@@ -2,6 +2,18 @@
 
 All notable changes to the canvas-scanner suite. Format: [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.5.1] - 2026-09-16
+### Fixed
+- Update check no longer reports phantom updates. The parent's HEAD is always
+  the "stamp VERSION" commit, one commit after the content commit recorded in
+  the local `git_sha`, so comparing the HEAD SHA against `git_sha` flagged an
+  update on every check, even when current. Git-clone installs now compare
+  branch position (`HEAD..origin/main`); zip/folder installs compare version
+  numbers (`version: x.y.z`) against the parent's raw VERSION file.
+- `setup.sh` now ships the suite version file to
+  `$HERMES_HOME/canvas-scanner-version` so folder-install update checks have a
+  local reference.
+
 ## [0.5.0] - 2026-09-16
 ### Added
 - **One-command setup**: `scripts/setup.sh` (macOS/Linux/Windows Git Bash) and a

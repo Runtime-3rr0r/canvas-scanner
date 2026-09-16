@@ -229,6 +229,14 @@ if [ -d "$TPL_SRC" ]; then
     note "templates seeded to $TPL_DST"
 fi
 
+# suite version file (the suite-update check compares this against the parent)
+VER_SRC="$ROOT/VERSION"
+VER_DST="$HERMES_HOME_HINT/canvas-scanner-version"
+if [ -f "$VER_SRC" ]; then
+    run cp "$VER_SRC" "$VER_DST"
+    note "suite version: $(grep '^version:' "$VER_SRC" | head -1)"
+fi
+
 # ---- 5. starter school-config --------------------------------------------------
 CFG="$HERMES_HOME_HINT/school-config.md"
 if [ -f "$CFG" ]; then

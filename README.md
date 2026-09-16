@@ -207,14 +207,17 @@ glance is enough to describe or rename them back into the system.
 
 ## Updating (no GitHub account needed)
 
-The `suite-update` skill checks the **public** parent repo anonymously
-(GitHub's anonymous API allows ~60 requests/hour; once a week is plenty).
+Just say *"check for updates"* inside Hermes and the `suite-update` skill
+compares the parent repo against your local version. Details:
 
-- Git-clone installs: `git pull` updates everything in place.
-- Folder/zip installs: re-download the zip
-  (https://github.com/Runtime-3rr0r/canvas-scanner/archive/refs/heads/main.zip)
-  and swap folders, or re-run `setup.sh` after replacing the folder.
-- Just say *"check for updates"* inside Hermes and the skill automates it.
+- Git-clone installs: `git -C <suite dir> pull --ff-only` at the clone root.
+- Zip/folder installs: re-download the zip
+  (https://github.com/Runtime-3rr0r/canvas-scanner/archive/refs/heads/main.zip),
+  swap the folders, then re-run `bash scripts/setup.sh --no-install`, which
+  refreshes skills, templates, and the version file.
+- setup.sh installs: your suite version is recorded at
+  `$HERMES_HOME/canvas-scanner-version`; the update check compares it against
+  the parent's `VERSION` file.
 - Publishing changes **back** is the only step that needs GitHub:
   `gh auth login`, then fork → PR or request collaborator access.
 

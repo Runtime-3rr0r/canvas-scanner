@@ -207,4 +207,6 @@ Check with `hermes gateway status`. On Windows this uses a Scheduled Task
   their private `~/.hermes/school-config.md` (or equivalent).
 - Updating the suite later needs no GitHub account: run the check via the
   `suite-update` skill ("check for updates" inside Hermes) or re-download the
-  repo zip from https://github.com/Runtime-3rr0r/canvas-scanner.
+  repo zip from https://github.com/Runtime-3rr0r/canvas-scanner, swap the
+  folders, and re-run `bash scripts/setup.sh --no-install` to refresh skills
+  and the version file.
