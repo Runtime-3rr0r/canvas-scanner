@@ -22,14 +22,16 @@ SKIP_FILES = {"sanitize.py"}
 SKIP_DIRS = {".git", ".github"}  # pattern lists are sensitive-by-definition there too
 
 REPL = [
-    # the real repo URL is kept on purpose (public routing info; updater needs it)
-    (r"github\.com/Runtime-3rr0r/canvas-scanner", "github.com/<GITHUB_USER>/canvas-scanner"),
+    # NOTE: the real repo URL github.com/Runtime-3rr0r/canvas-scanner (and its
+    # api.github.com/repos/... update-check form) is public routing info and is
+    # intentionally PRESERVED in the repo, never placeholder-replaced (see
+    # REPO_URL_OK below).
     (_p("XGJDaHJpc3RpYW4gSlwuIE1pbGxzXGI="), "<USER_NAME>"),
     (_p("XGJDaHJpc3RpYW4gTWlsbHNcYg=="), "<USER_NAME>"),
     (_p("XGJDaHJpc3RpYW5cYg=="), "<USER_NAME>"),
     (_p("XGJDaHJpc1xi"), "<USER_NAME>"),
     (_p("Y2hyaXN0aWFubWlsbHMxN0BpY2xvdWRcLmNvbQ=="), "<USER_EMAIL>"),
-    (_p("XGJSdW50aW1lLTNycjByXGI="), "<GITHUB_USER>"),
+    (_p("KD88IWdpdGh1YlwuY29tLykoPzwhcmVwb3MvKVJ1bnRpbWUtM3JyMHI="), "<GITHUB_USER>"),
     (_p("XGJKYXNvblxi"), "<SECOND_USER>"),
     (_p("XGI4MTAwMDhcYg=="), "<STUDENT_ID>"),
     (_p("Y2FsYmFwdGlzdFwuaW5zdHJ1Y3R1cmVcLmNvbQ=="), "<SCHOOL_DOMAIN>"),
@@ -67,7 +69,7 @@ REPL = [
 ]
 
 LEAKS = re.compile(_p("ODEwMDA4fGNhbGJhcHRpc3R8QzovVXNlcnMvQ2hyaXN8U2NoYWNodHxKZWZmIENhdGV8XGJDYXRlXGJ8XGJTZXRoXGJ8XGJUeXJvbmVcYnxcYk5hdGhhblxifFxiTWlsbHNDXGJ8Y2hyaXN0aWFubWlsbHMxN3xjaHJpc3RpYW5taWxsc3xcYkNocmlzXGJ8XGJDaHJpc3RpYW5cYnxcYkphc29uXGJ8YWNoaWV2ZVwubWFjbWlsbGFubGVhcm5pbmd8bXlsYWJtYXN0ZXJpbmdcLnBlYXJzb258XGJDQlVcYnxcYkNIU1RcZHs0fVxifFxiR05TVFxkezR9XGJ8XGJFTkdSXGR7NH1bQS1aXT9cYnxcYkNIRU1cZHs0fVtBLVpdP1xi"), re.I)
-REPO_URL_OK = re.compile(r"github\.com/Runtime-3rr0r/canvas-scanner")
+REPO_URL_OK = re.compile(r"(?:github\.com|api\.github\.com/repos)/Runtime-3rr0r/canvas-scanner")
 
 changed = 0
 for dirpath, dirs, files in os.walk(ROOT):

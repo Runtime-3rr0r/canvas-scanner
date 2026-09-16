@@ -2,6 +2,31 @@
 
 All notable changes to the canvas-scanner suite. Format: [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.5.0] - 2026-09-16
+### Added
+- **One-command setup**: `scripts/setup.sh` (macOS/Linux/Windows Git Bash) and a
+  double-clickable `setup.bat` for Windows. The script installs Hermes if needed,
+  collects the OpenRouter key into `~/.hermes/.env`, points Hermes at OpenRouter
+  with the free Nemotron 550B model, copies the skills and templates, seeds a
+  starter `school-config.md`, and runs `hermes doctor`. Idempotent and
+  non-interactive friendly (`OPENROUTER_API_KEY=sk-or-... bash scripts/setup.sh`,
+  `--dry-run`, `--no-install`, `--no-doctor`, `--with-gateway`).
+- **`AI-SETUP-GUIDE.md`**: machine-readable setup instructions at the repo root
+  so anyone can drop the repo zip into an online AI chatbot and be walked
+  through setup step by step (installs, key, model, config, verification,
+  troubleshooting).
+- README rewritten around the 2-minute script path; requirements now list only a
+  computer + free OpenRouter account (Hermes provisions Python/Git/Node itself).
+- The parent repo URL is now shipped verifiably: README, `AI-SETUP-GUIDE.md`,
+  and the `suite-update` skill all carry https://github.com/Runtime-3rr0r/canvas-scanner
+    links that work out of the box for zip and clone installs.
+
+### Changed
+- `scripts/sanitize.py` and the CI PII gate now treat the real parent-repo URL
+  as intentional public routing info (it was already the repo's own address):
+  the sanitizer no longer rewrites it to a `<GITHUB_USER>` placeholder, and CI
+  whitelists it the same way the sanitizer's verify stage already did.
+
 ## [0.4.2] - 2026-09-15
 ### Security
 - Guard files no longer expose the identifiers they protect: `scripts/sanitize.py` (REPL + LEAKS)
